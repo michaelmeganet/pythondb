@@ -9,9 +9,10 @@ db = MySQLdb.connect("192.168.100.198","testuser","test123","TESTDB" )
 cursor = db.cursor()
 
 # Prepare SQL query to INSERT a record into the database.
-sql = "SELECT * FROM EMPLOYEE WHERE INCOME > '%d'" % (1000)
+sql = "SELECT * FROM EMPLOYEE  WHERE INCOME > '%d'" % (1000)
 try:
    # Execute the SQL command
+   print sql
    cursor.execute(sql)
    # Fetch all the rows in a list of lists.
    results = cursor.fetchall()
@@ -22,8 +23,7 @@ try:
       sex = row[3]
       income = row[4]
       # Now print fetched result
-      print "fname=%s,lname=%s,age=%d,sex=%s,income=%d" % \
-             (fname, lname, age, sex, income )
+      print "fname=%s,lname=%s,age=%d,sex=%s,income=%d" % (fname, lname, age, sex, income )
 except:
    print "Error: unable to fecth data"
 
